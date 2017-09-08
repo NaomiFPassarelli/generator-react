@@ -1,0 +1,25 @@
+{
+  "name": "generator-react",
+  "version": "1.0.0",
+  "description": "generator-react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NaomiFPassarelli/generator-react.git"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Naomi Passarelli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NaomiFPassarelli/generator-react/issues"
+  },
+  "homepage": "https://github.com/NaomiFPassarelli/generator-react#readme",
+  "dependencies": {
+    "yeoman-generator": "^1.1.1"
+  }
+}
