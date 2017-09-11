@@ -223,14 +223,14 @@ KickoffGenerator.prototype.askFor = function() {
 };
 
 KickoffGenerator.prototype.packageFiles = function packageFiles() {
-  // this.fs.copyTpl(
-  //   this.templatePath("_index.html"),
-  //   this.destinationPath("index.html"),
-  //   {
-  //     projectName: this.projectName,
-  //     projectNameSlugified: _.kebabCase(this.projectName)
-  //   }
-  // );
+  this.fs.copyTpl(
+    this.templatePath("_index.html"),
+    this.destinationPath("index.html"),
+    {
+      projectName: this.projectName,
+      projectNameSlugified: _.kebabCase(this.projectName)
+    }
+  );
   this.fs.copyTpl(
     this.templatePath("_package.json"),
     this.destinationPath("package.json"),
