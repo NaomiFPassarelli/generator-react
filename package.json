@@ -5,7 +5,13 @@
   "files": ["index.js", "generators"],
   "main": "app/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "./node_modules/eslint/bin/eslint.js src",
+    "precommit": "npm run lint-diff",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "deploy": "npm run build"
   },
   "repository": "git+https://github.com/NaomiFPassarelli/generator-react.git",
   "keywords": ["yeoman-generator"],
@@ -23,7 +29,6 @@
     "react": "^15.6.1",
     "react-addons-perf": "^15.4.2",
     "react-dom": "^15.6.1",
-    "react-modal": "^2.3.2",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
