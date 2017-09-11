@@ -1,6 +1,6 @@
 "use strict";
-var util = require("util");
-var yeoman = require("yeoman-generator");
+// var util = require("util");
+// var yeoman = require("yeoman-generator");
 var chalk = require("chalk");
 var pkg = require("../../package.json");
 var _ = require("lodash");
@@ -21,14 +21,24 @@ var reduxForm = require("redux-form");
 var reduxThunk = require("redux-thunk");
 var seamlessImmutable = require("seamless-immutable");
 
-var KickoffGenerator = (module.exports = function KickoffGenerator(
-  args,
-  options
-) {
-  yeoman.Base.apply(this, arguments);
-});
+// var KickoffGenerator = (module.exports = function KickoffGenerator(
+//   args,
+//   options
+// ) {
+//   yeoman.Base.apply(this, arguments);
+// });
 
-util.inherits(KickoffGenerator, yeoman.Base);
+// util.inherits(KickoffGenerator, yeoman.Base);
+
+var Generator = require("yeoman-generator");
+
+var KickoffGenerator = (module.exports = class extends Generator {
+  // The name `constructor` is important here
+  constructor(args, opts) {
+    // Calling the super constructor is important so our generator is correctly set up
+    super(args, opts);
+  }
+});
 
 KickoffGenerator.prototype.askFor = function() {
   var kickoffWelcome =
