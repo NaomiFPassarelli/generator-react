@@ -6,20 +6,20 @@ var pkg = require("../../package.json");
 var _ = require("lodash");
 var proptypes = require("prop-types");
 
-var = require("apisauce");
-var = require("history");
-var = require("react");
-var = require("react-addons-perf");
-var = require("react-dom");
-var = require("react-redux");
-var = require("react-router");
-var = require("react-router-dom");
-var = require("react-router-redux");
-var = require("redux");
-var = require("redux-beacon");
-var = require("redux-form");
-var = require("redux-thunk");
-var = require("seamless-immutable");
+var apisauce = require("apisauce");
+var history = require("history");
+var react = require("react");
+var reactAddonsPerf = require("react-addons-perf");
+var reactDom = require("react-dom");
+var reactRedux = require("react-redux");
+var reactRouter = require("react-router");
+var reactRouterDom = require("react-router-dom");
+var reactRouterRedux = require("react-router-redux");
+var redux = require("redux");
+var reduxBeacon = require("redux-beacon");
+var reduxForm = require("redux-form");
+var reduxThunk = require("redux-thunk");
+var seamlessImmutable = require("seamless-immutable");
 
 var KickoffGenerator = (module.exports = function KickoffGenerator(
   args,
@@ -88,11 +88,11 @@ KickoffGenerator.prototype.askFor = function() {
       name: "i18next",
       message: "Would you like to enable i18next?"
     },
-    {
-      type: "confirm",
-      name: "lodash",
-      message: "Would you like to enable lodash?"
-    },
+    // {
+    //   type: "confirm",
+    //   name: "lodash",
+    //   message: "Would you like to enable lodash?"
+    // },
     {
       type: "confirm",
       name: "mobileDetect",
@@ -178,7 +178,7 @@ KickoffGenerator.prototype.askFor = function() {
       this.includeAphrodite = hasFeature("aphrodite", answers.aphrodite);
       this.includeRadium = hasFeature("radium", answers.radium);
       this.includeInext = hasFeature("i18next", answers.i18next);
-      this.includeLodash = hasFeature("lodash", answers.lodash);
+      // this.includeLodash = hasFeature("lodash", answers.lodash);
       this.includeMobileDetect = hasFeature(
         "mobileDetect",
         answers.mobileDetect
@@ -192,15 +192,15 @@ KickoffGenerator.prototype.askFor = function() {
       this.includePostcss = hasFeature("postcss", answers.postcss);
       this.includeReactAlert = hasFeature("reactAlert", answers.reactAlert);
       this.includeReactModal = hasFeature("reactModal", answers.reactModal);
-      this.includeReactGoogleMaps = hasFeature("reactGoogleMaps", answers.reactGoogleMaps);
+      this.includeReactGoogleMaps = hasFeature(
+        "reactGoogleMaps",
+        answers.reactGoogleMaps
+      );
       this.includeReactResponsive = hasFeature(
         "reactResponsive",
         answers.reactResponsive
       );
-      this.includeReactScroll = hasFeature(
-        "reactScroll",
-        answers.reactScroll
-      );
+      this.includeReactScroll = hasFeature("reactScroll", answers.reactScroll);
       this.includeReactShare = hasFeature("reactShare", answers.reactShare);
       this.includeReactVirtualized = hasFeature(
         "reactVirtualized",
@@ -232,7 +232,7 @@ KickoffGenerator.prototype.packageFiles = function packageFiles() {
       includeAphrodite: this.includeAphrodite,
       includeRadium: this.includeRadium,
       includeInext: this.includeInext,
-      includeLodash: this.includeLodash,
+      // includeLodash: this.includeLodash,
       includeMobileDetect: this.includeMobileDetect,
       includeMoment: this.includeMoment,
       includeNukaCarousel: this.includeNukaCarousel,
@@ -255,10 +255,22 @@ KickoffGenerator.prototype.packageFiles = function packageFiles() {
   this.copy("src/app/assets", "src/app/assets");
   this.copy("src/app/components", "src/app/components");
   this.copy("src/app/components/Routes", "src/app/components/Routes");
-  this.copy("src/app/components/Routes/components", "src/app/components/Routes/components");
-  this.copy("src/app/components/Routes/components/AuthenticatedRoute.js", "src/app/components/Routes/components/AuthenticatedRoute.js");
-  this.copy("src/app/components/Routes/constants.js", "src/app/components/Routes/constants.js");
-  this.copy("src/app/components/Routes/index.js", "src/app/components/Routes/index.js");
+  this.copy(
+    "src/app/components/Routes/components",
+    "src/app/components/Routes/components"
+  );
+  this.copy(
+    "src/app/components/Routes/components/AuthenticatedRoute.js",
+    "src/app/components/Routes/components/AuthenticatedRoute.js"
+  );
+  this.copy(
+    "src/app/components/Routes/constants.js",
+    "src/app/components/Routes/constants.js"
+  );
+  this.copy(
+    "src/app/components/Routes/index.js",
+    "src/app/components/Routes/index.js"
+  );
   this.copy("src/app/screens", "src/app/screens");
   this.copy("src/app/index.js", "src/app/index.js");
   this.copy("src/app/styles.js", "src/app/styles.js");
@@ -273,11 +285,14 @@ KickoffGenerator.prototype.packageFiles = function packageFiles() {
   this.copy("src/utils", "src/utils");
   this.copy("src/utils/colors.js", "src/utils/colors.js");
 
-  if(this.includeNumeral) {
+  if (this.includeNumeral) {
     this.copy("src/config/numeral.js", "src/config/numeral.js");
   }
   if (this.includeReduxBeacon) {
-    this.copy("src/services/AnalyticsService.js", "src/services/AnalyticsService.js");
+    this.copy(
+      "src/services/AnalyticsService.js",
+      "src/services/AnalyticsService.js"
+    );
   }
 };
 
