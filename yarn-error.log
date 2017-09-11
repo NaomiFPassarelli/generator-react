@@ -1,0 +1,67 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js init
+
+PATH: 
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Amazon\AWSCLI\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\Java\jdk1.8.0_144\bin;"C:\Android\tools;C:\Android\platform-tools";C:\Users\Naomi\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Naomi\AppData\Local\Programs\Python\Python36\;C:\Users\Naomi\AppData\Local\Microsoft\WindowsApps;C:\Users\Naomi\AppData\Local\Yarn\bin;C:\Users\Naomi\AppData\Local\atom\bin;C:\Users\Naomi\AppData\Roaming\Python\Python36\Scripts;C:\Program Files\Amazon\AWSCLI;C:\Users\Naomi\AppData\Roaming\npm;"C:\Android\tools;C:\Android\platform-tools";
+
+Yarn version: 
+  0.27.5
+
+Node version: 
+  8.4.0
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "name": "generator-react",
+    "version": "1.0.0",
+    "description": "generator-react",
+    "files": [
+      "index.js",
+      "generators"
+    ],
+    "main": "app/index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/NaomiFPassarelli/generator-react.git"
+    },
+    "keywords": [
+      "yeoman-generator"
+    ],
+    "author": {
+      "name": "Naomi Passarelli",
+      "url": "https://github.com/NaomiFPassarelli"
+    },
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/NaomiFPassarelli/generator-react/issues"
+    },
+    "homepage": "https://github.com/NaomiFPassarelli/generator-react",
+    "dependencies": {
+      "yeoman-generator": "^1.1.1"
+    }
+  }
+  
+  
+  /*"main": "index.js",*/
+  /*"homepage": "https://github.com/NaomiFPassarelli/generator-react#readme",*/
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  SyntaxError: C:\Users\Naomi\generator-react\package.json: Unexpected token / in JSON at position 742
+      at JSON.parse (<anonymous>)
+      at C:\Program Files (x86)\Yarn\lib\yarn-cli.js:747:57
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\yarn-cli.js:91:30)
+      at C:\Program Files (x86)\Yarn\lib\yarn-cli.js:102:13
+      at <anonymous>

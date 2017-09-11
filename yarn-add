@@ -1,0 +1,57 @@
+// requeridos
+yarn add history
+&& yarn add lodash
+&& yarn add react-router
+&& yarn add react-router-dom
+&& yarn add react-router-redux
+&& yarn add redux-form
+&& yarn add radium
+&& yarn add aphrodite
+
+
+//opcional
+yarn add i18next
+ && yarn add mobile-detect
+ && yarn add moment
+ && yarn add nuka-carousel
+ && yarn add numeral
+ && yarn add postcss
+ && yarn add react-addons-perf
+ && yarn add react-alert
+ && yarn add react-google-maps
+ && yarn add react-modal
+ && yarn add react-responsive
+ && yarn add react-scroll
+ && yarn add react-share
+ && yarn add react-virtualized
+ && yarn add recharts
+ && yarn add redux-beacon
+ && yarn add reselect
+
+radium
+
+// por ahora no
+es5-shim
+es6-shim
+es7-shim
+raf
+
+
+
+//devDependences
+yarn add babel-eslint --dev
+&& yarn add eslint --dev
+&& yarn add eslint-config-prettier --dev
+&& yarn add eslint-plugin-import --dev
+&& yarn add eslint-plugin-prettier --dev
+&& yarn add eslint-plugin-react --dev
+&& yarn add husky --dev
+&& yarn add prettier --dev
+&& yarn add prettier-eslint --dev
+&& yarn add react-scripts --dev
+
+
+//devDependences por ahora no
+&& yarn add eslint-config-airbnb
+&& yarn add eslint-plugin-flowtype
+&& yarn add eslint-plugin-jsx-a11y
