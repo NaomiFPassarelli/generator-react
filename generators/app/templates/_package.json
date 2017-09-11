@@ -8,73 +8,73 @@
     "url": "<%= repoUrl %>"
   },
   "dependencies": {
-    if (includeAphrodite && !includeRadium) {%>
+    if (this.includeAphrodite && !this.includeRadium) {
     "aphrodite": "^1.2.3"<%
     }
 
-    if (!includeAphrodite && includeRadium) {%>,
+    if (!this.includeAphrodite && this.includeRadium) {%>,
     "radium": "^0.19.4"<%
     }
 
-    if (includeInext) {%>,
+    if (this.includeInext) {%>,
     "i18next": "^9.0.0"<%
     }
 
-    if (includeMobileDetect) {%>,
+    if (this.includeMobileDetect) {%>,
     "mobile-detect": "^1.3.7"<%
     }
 
-    if (includeMoment) {%>,
+    if (this.includeMoment) {%>,
     "moment": "^2.18.1"<%
     }
 
-    if (includeNukaCarousel) {%>,
+    if (this.includeNukaCarousel) {%>,
     "nuka-carousel": "^2.3.0"<%
     }
 
-    if (includeNumeral) {%>,
+    if (this.includeNumeral) {%>,
     "numeral": "^2.0.6"<%
     }
 
-    if (includePostcss) {%>,
+    if (this.includePostcss) {%>,
     "postcss": "^6.0.11"<%
     }
 
-    if (includeReactAlert) {%>,
+    if (this.includeReactAlert) {%>,
     "react-alert": "^2.3.0"<%
     }
 
-    if (includeReactModal) {%>,
+    if (this.includeReactModal) {%>,
     "react-modal": "^2.3.2"<%
     }
 
-    if (includeReactResponsive) {%>,
+    if (this.includeReactResponsive) {%>,
     "react-responsive": "^1.3.4"<%
     }
 
-    if (includeReactScroll) {%>,
+    if (this.includeReactScroll) {%>,
     "react-scroll": "^1.5.4"<%
     }
 
-    if (includeReactShare) {%>,
+    if (this.includeReactShare) {%>,
     "react-share": "^1.16.0"<%
     }
 
-    if (includeReactVirtualized) {%>,
+    if (this.includeReactVirtualized) {%>,
     "react-virtualized": "^9.9.0"<%
     }
 
-    if (includeRecharts) {%>,
+    if (this.includeRecharts) {%>,
     "recharts": "^1.0.0-alpha.4"<%
     }
 
-    if (includeReactGoogleMaps) {%>,
+    if (this.includeReactGoogleMaps) {%>,
     "react-google-maps": "^7.3.0"<%
     }
 
-    if (includeReselect) {%>,
-    "reselect": "^3.0.1"<%
-    } %>
+    if (this.includeReselect) {%>,
+    "reselect": "^3.0.1"
+    }
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

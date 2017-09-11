@@ -97,11 +97,6 @@ class GeneratorReact extends Generator {
         name: "i18next",
         message: "Would you like to enable i18next?"
       },
-      // {
-      //   type: "confirm",
-      //   name: "lodash",
-      //   message: "Would you like to enable lodash?"
-      // },
       {
         type: "confirm",
         name: "mobileDetect",
@@ -181,13 +176,14 @@ class GeneratorReact extends Generator {
         }
 
         function hasFeature(feat, prop) {
-          return prop && prop.indexOf(feat) !== -1;
+          return prop;
         }
 
         this.includeAphrodite = hasFeature("aphrodite", answers.aphrodite);
+        this.log(answers);
+        this.log(answers.aphrodite);
         this.includeRadium = hasFeature("radium", answers.radium);
         this.includeInext = hasFeature("i18next", answers.i18next);
-        // this.includeLodash = hasFeature("lodash", answers.lodash);
         this.includeMobileDetect = hasFeature(
           "mobileDetect",
           answers.mobileDetect
@@ -226,8 +222,8 @@ class GeneratorReact extends Generator {
 
   addFiles() {
     this.fs.copyTpl(
-      this.templatePath("_index.html"),
-      this.destinationPath("index.html"),
+      this.templatePath("_index.js"),
+      this.destinationPath("index.js"),
       {
         projectName: this.projectName,
         projectNameSlugified: _.kebabCase(this.projectName)
@@ -244,7 +240,6 @@ class GeneratorReact extends Generator {
         includeAphrodite: this.includeAphrodite,
         includeRadium: this.includeRadium,
         includeInext: this.includeInext,
-        // includeLodash: this.includeLodash,
         includeMobileDetect: this.includeMobileDetect,
         includeMoment: this.includeMoment,
         includeNukaCarousel: this.includeNukaCarousel,
@@ -261,50 +256,146 @@ class GeneratorReact extends Generator {
         includeReselect: this.includeReselect
       }
     );
-    this.copy("src", "src");
-    this.copy("src/index.js", "src/index.js");
-    this.copy("src/app", "src/app");
-    this.copy("src/app/assets", "src/app/assets");
-    this.copy("src/app/components", "src/app/components");
-    this.copy("src/app/components/Routes", "src/app/components/Routes");
-    this.copy(
-      "src/app/components/Routes/components",
-      "src/app/components/Routes/components"
+
+    this.fs.copyTpl(
+      this.templatePath("_package.json"),
+      this.destinationPath("package.json"),
+      {}
     );
-    this.copy(
-      "src/app/components/Routes/components/AuthenticatedRoute.js",
-      "src/app/components/Routes/components/AuthenticatedRoute.js"
+
+    this.fs.copyTpl(this.templatePath("src"), this.destinationPath("src"), {});
+    this.fs.copyTpl(
+      this.templatePath("src/index.js"),
+      this.destinationPath("src/index.js"),
+      {}
     );
-    this.copy(
-      "src/app/components/Routes/constants.js",
-      "src/app/components/Routes/constants.js"
+    this.fs.copyTpl(
+      this.templatePath("src/app"),
+      this.destinationPath("src/app"),
+      {}
     );
-    this.copy(
-      "src/app/components/Routes/index.js",
-      "src/app/components/Routes/index.js"
+    this.fs.copyTpl(
+      this.templatePath("src/app/assets"),
+      this.destinationPath("src/app/assets"),
+      {}
     );
-    this.copy("src/app/screens", "src/app/screens");
-    this.copy("src/app/index.js", "src/app/index.js");
-    this.copy("src/app/styles.js", "src/app/styles.js");
-    this.copy("src/config", "src/config");
-    this.copy("src/config/api.js", "src/config/api.js");
-    this.copy("src/config/i18n.js", "src/config/i18n.js");
-    this.copy("src/config/perf.js", "src/config/perf.js");
-    this.copy("src/constants", "src/constants");
-    this.copy("src/redux", "src/redux");
-    this.copy("src/redux/store.js", "src/redux/store.js");
-    this.copy("src/services", "src/services");
-    this.copy("src/utils", "src/utils");
-    this.copy("src/utils/colors.js", "src/utils/colors.js");
-    this.copy("gitignore", ".gitignore");
+    this.fs.copyTpl(
+      this.templatePath("src/app/components"),
+      this.destinationPath("src/app/components"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/app/components/Routes"),
+      this.destinationPath("src/app/components/Routes"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/app/components/Routes/components"),
+      this.destinationPath("src/app/components/Routes/components"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath(
+        "src/app/components/Routes/components/AuthenticatedRoute.js"
+      ),
+      this.destinationPath(
+        "src/app/components/Routes/components/AuthenticatedRoute.js"
+      ),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/app/components/Routes/constants.js"),
+      this.destinationPath("src/app/components/Routes/constants.js"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/app/components/Routes/index.js"),
+      this.destinationPath("src/app/components/Routes/index.js"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/app/screens"),
+      this.destinationPath("src/app/screens"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/app/index.js"),
+      this.destinationPath("src/app/index.js"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/app/styles.js"),
+      this.destinationPath("src/app/styles.js"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/config"),
+      this.destinationPath("src/config"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/config/api.js"),
+      this.destinationPath("src/config/api.js"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/config/i18n.js"),
+      this.destinationPath("src/config/i18n.js"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/config/perf.js"),
+      this.destinationPath("src/config/perf.js"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/constants"),
+      this.destinationPath("src/constants"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/redux"),
+      this.destinationPath("src/redux"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/redux/store.js"),
+      this.destinationPath("src/redux/store.js"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/services"),
+      this.destinationPath("src/services"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/utils"),
+      this.destinationPath("src/utils"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/utils/colors.js"),
+      this.destinationPath("src/utils/colors.js"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("gitignore"),
+      this.destinationPath(".gitignore"),
+      {}
+    );
 
     if (this.includeNumeral) {
-      this.copy("src/config/numeral.js", "src/config/numeral.js");
+      this.fs.copyTpl(
+        this.templatePath("src/config/numeral.js"),
+        this.destinationPath("src/config/numeral.js"),
+        {}
+      );
     }
     if (this.includeReduxBeacon) {
-      this.copy(
-        "src/services/AnalyticsService.js",
-        "src/services/AnalyticsService.js"
+      this.fs.copyTpl(
+        this.templatePath("src/services/AnalyticsService.js"),
+        this.destinationPath("src/services/AnalyticsService.js"),
+        {}
       );
     }
   }
@@ -316,47 +407,6 @@ class GeneratorReact extends Generator {
       yarn: true
     });
   }
-
-  // configuring() {
-  //   return (
-  //     Promise.resolve()
-  //       // .then(() => reactNativeCliInstall.bind(this)())
-  //       // .then(() => reactNativeInit.bind(this)())
-  //       .then(() => installDependencies.bind(this)())
-  //   );
-  // }
-  //
-  // writing() {
-  //   appSetup.bind(this)();
-  // }
-  //
-  // install() {
-  //   return (
-  //     Promise.resolve()
-  //       .then(() => bundleInstall.bind(this)())
-  //       // .then(() => reactNativeLink.bind(this)())
-  //       .then(() => gitInitialization.bind(this)())
-  //   );
-  // }
-  //
-  // end() {
-  //   nextSteps.bind(this)();
-  // }
 }
 
-// generators.Base.extend({
-//   install: function() {
-//     this.installDependencies({
-//       npm: false,
-//       bower: true,
-//       yarn: true
-//     });
-//   }
-// });
-
-module.exports = ReactNativeBootstrap;
-
-// KickoffGenerator.prototype.install = function packageFiles() {
-// 	opn('http://trykickoff.com/learn/checklist.html');
-// 	this.installDependencies();
-// };
+module.exports = GeneratorReact;
