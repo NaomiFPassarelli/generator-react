@@ -1,6 +1,4 @@
 "use strict";
-// var util = require("util");
-// var yeoman = require("yeoman-generator");
 var chalk = require("chalk");
 var pkg = require("../../package.json");
 var _ = require("lodash");
@@ -21,14 +19,7 @@ var reduxForm = require("redux-form");
 var reduxThunk = require("redux-thunk");
 var seamlessImmutable = require("seamless-immutable");
 
-// var KickoffGenerator = (module.exports = function KickoffGenerator(
-//   args,
-//   options
-// ) {
-//   yeoman.Base.apply(this, arguments);
-// });
-
-// util.inherits(KickoffGenerator, yeoman.Base);
+var mkdirp = require("mkdirp");
 
 var Generator = require("yeoman-generator");
 
@@ -39,20 +30,20 @@ class GeneratorReact extends Generator {
 
   welcome() {
     var kickoffWelcome =
-      chalk.white("\n  ██╗  ██╗██╗ ██████╗██╗  ██╗ ") +
-      chalk.yellow("██████╗ ███████╗███████╗") +
-      chalk.white("\n  ██║ ██╔╝██║██╔════╝██║ ██╔╝") +
-      chalk.yellow("██╔═══██╗██╔════╝██╔════╝") +
-      chalk.white("\n  █████╔╝ ██║██║     █████╔╝ ") +
-      chalk.yellow("██║   ██║█████╗  █████╗") +
-      chalk.white("\n  ██╔═██╗ ██║██║     ██╔═██╗ ") +
-      chalk.yellow("██║   ██║██╔══╝  ██╔══╝") +
-      chalk.white("\n  ██║  ██╗██║╚██████╗██║  ██╗") +
-      chalk.yellow("╚██████╔╝██║     ██║") +
-      chalk.white("\n  ╚═╝  ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ") +
-      chalk.yellow("╚═════╝ ╚═╝     ╚═╝") +
+      chalk.blue("\n  ██╗  ██╗██╗ ██████╗██╗  ██╗ ") +
+      chalk.white("██████╗ ███████╗███████╗") +
+      chalk.blue("\n  ██║ ██╔╝██║██╔════╝██║ ██╔╝") +
+      chalk.white("██╔═══██╗██╔════╝██╔════╝") +
+      chalk.blue("\n  █████╔╝ ██║██║     █████╔╝ ") +
+      chalk.white("██║   ██║█████╗  █████╗") +
+      chalk.blue("\n  ██╔═██╗ ██║██║     ██╔═██╗ ") +
+      chalk.white("██║   ██║██╔══╝  ██╔══╝") +
+      chalk.blue("\n  ██║  ██╗██║╚██████╗██║  ██╗") +
+      chalk.white("╚██████╔╝██║     ██║") +
+      chalk.blue("\n  ╚═╝  ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝ ") +
+      chalk.white("╚═════╝ ╚═╝     ╚═╝") +
       "\n\n  " +
-      chalk.white.bold("A generator for the React Kickoff") +
+      chalk.blue.bold("Welcome Woloxer to the React kickoff") +
       "\n\n  ";
 
     this.log(kickoffWelcome);
@@ -65,20 +56,32 @@ class GeneratorReact extends Generator {
         name: "projectName",
         message: "Your Project name",
         default: "Your project name",
-        store: true
+        store: true,
+        validate: val =>
+          String(val).match(/^[$A-Z_][0-9A-Z_$]*$/i)
+            ? true
+            : `${val} is not a valid name for a project. Please use a valid identifier name (alphanumeric).`
       },
       {
         type: "input",
         name: "projectDescription",
         message: "Description",
         default: "Project description",
-        store: true
+        store: true,
+        validate: val =>
+          String(val).match(/^[$A-Z_][0-9A-Z_$]*$/i)
+            ? true
+            : `${val} is not a valid description for a project. Please use a valid description (alphanumeric).`
       },
       {
         type: "input",
         name: "repoUrl",
         message: "What is the git repo url for this project?",
-        store: true
+        store: true,
+        validate: val =>
+          String(val).match(/^[$A-Z_][0-9A-Z_$]*$/i)
+            ? true
+            : `${val} is not a valid description for a project. Please use a valid description (alphanumeric).`
       },
       {
         type: "confirm",
@@ -180,8 +183,6 @@ class GeneratorReact extends Generator {
         }
 
         this.includeAphrodite = hasFeature("aphrodite", answers.aphrodite);
-        this.log(answers);
-        this.log(answers.aphrodite);
         this.includeRadium = hasFeature("radium", answers.radium);
         this.includeInext = hasFeature("i18next", answers.i18next);
         this.includeMobileDetect = hasFeature(
@@ -222,14 +223,6 @@ class GeneratorReact extends Generator {
 
   addFiles() {
     this.fs.copyTpl(
-      this.templatePath("_index.js"),
-      this.destinationPath("index.js"),
-      {
-        projectName: this.projectName,
-        projectNameSlugified: _.kebabCase(this.projectName)
-      }
-    );
-    this.fs.copyTpl(
       this.templatePath("_package.json"),
       this.destinationPath("package.json"),
       {
@@ -258,42 +251,15 @@ class GeneratorReact extends Generator {
     );
 
     this.fs.copyTpl(
-      this.templatePath("_package.json"),
-      this.destinationPath("package.json"),
-      {}
-    );
-
-    this.fs.copyTpl(this.templatePath("src"), this.destinationPath("src"), {});
-    this.fs.copyTpl(
       this.templatePath("src/index.js"),
       this.destinationPath("src/index.js"),
       {}
     );
-    this.fs.copyTpl(
-      this.templatePath("src/app"),
-      this.destinationPath("src/app"),
-      {}
-    );
-    this.fs.copyTpl(
-      this.templatePath("src/app/assets"),
-      this.destinationPath("src/app/assets"),
-      {}
-    );
-    this.fs.copyTpl(
-      this.templatePath("src/app/components"),
-      this.destinationPath("src/app/components"),
-      {}
-    );
-    this.fs.copyTpl(
-      this.templatePath("src/app/components/Routes"),
-      this.destinationPath("src/app/components/Routes"),
-      {}
-    );
-    this.fs.copyTpl(
-      this.templatePath("src/app/components/Routes/components"),
-      this.destinationPath("src/app/components/Routes/components"),
-      {}
-    );
+
+    mkdirp(this.destinationPath("src/app/assets/"));
+    mkdirp(this.destinationPath("src/app/screens/"));
+    mkdirp(this.destinationPath("src/constants/"));
+
     this.fs.copyTpl(
       this.templatePath(
         "src/app/components/Routes/components/AuthenticatedRoute.js"
@@ -314,11 +280,6 @@ class GeneratorReact extends Generator {
       {}
     );
     this.fs.copyTpl(
-      this.templatePath("src/app/screens"),
-      this.destinationPath("src/app/screens"),
-      {}
-    );
-    this.fs.copyTpl(
       this.templatePath("src/app/index.js"),
       this.destinationPath("src/app/index.js"),
       {}
@@ -326,11 +287,6 @@ class GeneratorReact extends Generator {
     this.fs.copyTpl(
       this.templatePath("src/app/styles.js"),
       this.destinationPath("src/app/styles.js"),
-      {}
-    );
-    this.fs.copyTpl(
-      this.templatePath("src/config"),
-      this.destinationPath("src/config"),
       {}
     );
     this.fs.copyTpl(
@@ -346,11 +302,6 @@ class GeneratorReact extends Generator {
     this.fs.copyTpl(
       this.templatePath("src/config/perf.js"),
       this.destinationPath("src/config/perf.js"),
-      {}
-    );
-    this.fs.copyTpl(
-      this.templatePath("src/constants"),
-      this.destinationPath("src/constants"),
       {}
     );
     this.fs.copyTpl(
@@ -382,6 +333,12 @@ class GeneratorReact extends Generator {
       this.templatePath("gitignore"),
       this.destinationPath(".gitignore"),
       {}
+    );
+
+    this.fs.copyTpl(
+      this.templatePath("public/index.html"),
+      this.destinationPath("public/index.html"),
+      { projectName: this.projectName }
     );
 
     if (this.includeNumeral) {

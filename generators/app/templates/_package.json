@@ -8,73 +8,89 @@
     "url": "<%= repoUrl %>"
   },
   "dependencies": {
-    if (this.includeAphrodite && !this.includeRadium) {
-    "aphrodite": "^1.2.3"<%
+    <% if (includeAphrodite && !includeRadium) {%>
+      "aphrodite": "^1.2.3",<%
     }
 
-    if (!this.includeAphrodite && this.includeRadium) {%>,
-    "radium": "^0.19.4"<%
+    if (!includeAphrodite && includeRadium) {%>
+    "radium": "^0.19.4",<%
     }
 
-    if (this.includeInext) {%>,
-    "i18next": "^9.0.0"<%
+    if (includeInext) {%>
+    "i18next": "^9.0.0",<%
     }
 
-    if (this.includeMobileDetect) {%>,
-    "mobile-detect": "^1.3.7"<%
+    if (includeMobileDetect) {%>
+    "mobile-detect": "^1.3.7",<%
     }
 
-    if (this.includeMoment) {%>,
-    "moment": "^2.18.1"<%
+    if (includeMoment) {%>
+    "moment": "^2.18.1",<%
     }
 
-    if (this.includeNukaCarousel) {%>,
-    "nuka-carousel": "^2.3.0"<%
+    if (includeNukaCarousel) {%>
+    "nuka-carousel": "^2.3.0",<%
     }
 
-    if (this.includeNumeral) {%>,
-    "numeral": "^2.0.6"<%
+    if (includeNumeral) {%>
+    "numeral": "^2.0.6",<%
     }
 
-    if (this.includePostcss) {%>,
-    "postcss": "^6.0.11"<%
+    if (includePostcss) {%>
+    "postcss": "^6.0.11",<%
     }
 
-    if (this.includeReactAlert) {%>,
-    "react-alert": "^2.3.0"<%
+    if (includeReactAlert) {%>
+    "react-alert": "^2.3.0",<%
     }
 
-    if (this.includeReactModal) {%>,
-    "react-modal": "^2.3.2"<%
+    if (includeReactModal) {%>
+    "react-modal": "^2.3.2",<%
     }
 
-    if (this.includeReactResponsive) {%>,
-    "react-responsive": "^1.3.4"<%
+    if (includeReactResponsive) {%>
+    "react-responsive": "^1.3.4",<%
     }
 
-    if (this.includeReactScroll) {%>,
-    "react-scroll": "^1.5.4"<%
+    if (includeReactScroll) {%>
+    "react-scroll": "^1.5.4",<%
     }
 
-    if (this.includeReactShare) {%>,
-    "react-share": "^1.16.0"<%
+    if (includeReactShare) {%>
+    "react-share": "^1.16.0",<%
     }
 
-    if (this.includeReactVirtualized) {%>,
-    "react-virtualized": "^9.9.0"<%
+    if (includeReactVirtualized) {%>
+    "react-virtualized": "^9.9.0",<%
     }
 
-    if (this.includeRecharts) {%>,
-    "recharts": "^1.0.0-alpha.4"<%
+    if (includeRecharts) {%>
+    "recharts": "^1.0.0-alpha.4",<%
     }
 
-    if (this.includeReactGoogleMaps) {%>,
-    "react-google-maps": "^7.3.0"<%
+    if (includeReactGoogleMaps) {%>
+    "react-google-maps": "^7.3.0",<%
     }
 
-    if (this.includeReselect) {%>,
-    "reselect": "^3.0.1"
-    }
+    if (includeReselect) {%>
+    "reselect": "^3.0.1",<%
+    }%>
+    "apisauce": "^0.14.1",
+    "history": "^4.7.2",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-addons-perf": "^15.4.2",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.2",
+    "redux-beacon": "^1.1.0",
+    "redux-form": "^7.0.4",
+    "redux-thunk": "^2.2.0",
+    "seamless-immutable": "^7.1.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -87,5 +103,15 @@
     "prettier": "^1.6.1",
     "prettier-eslint": "^8.0.0",
     "react-scripts": "^1.0.13"
+  },
+  "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js src",
+    "precommit": "npm run lint-diff",
+    "start": "./node_modules/react-scripts/bin/react-scripts.js start",
+    "build": "./node_modules/react-scripts/bin/react-scripts.js build",
+    "test":
+      "./node_modules/react-scripts/bin/react-scripts.js test --env=jsdom",
+    "eject": "./node_modules/react-scripts/bin/react-scripts.js eject",
+    "deploy": "npm run build"
   }
 }
