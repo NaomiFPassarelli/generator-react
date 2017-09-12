@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+// TODO Add this line if you need it
+// import { connect } from "react-redux";
 
 import { apiSetup } from "../config/api";
-import {
-  actionCreators as authActions,
-  propTypes as authPropTypes
-} from "../redux/authHandlers";
 
 import Routes from "./components/Routes";
 
@@ -13,7 +10,7 @@ class App extends Component {
   componentDidMount() {
     apiSetup(this.props.dispatch);
     if (this.props.loading) {
-      this.props.dispatch(authActions.init());
+      // this.props.dispatch()
     }
   }
 
@@ -22,12 +19,8 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  loading: authPropTypes().loading
+App.defaultProps = {
+  loading: false
 };
 
-const mapStateToProps = store => ({
-  loading: store.auth.initialLoading
-});
-
-export default connect(mapStateToProps)(App);
+export default App;

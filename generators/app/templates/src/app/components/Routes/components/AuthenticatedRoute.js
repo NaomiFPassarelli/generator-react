@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
-import { connect } from "react-redux";
+// TODO Add this line if you need it
+// import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import PropTypes from "prop-types";
 
@@ -56,18 +57,18 @@ function AuthenticatedRoute({
   );
 }
 
+AuthenticatedRoute.defaultProps = {
+  currentUser: true,
+  isPublicRoute: true
+};
+
 AuthenticatedRoute.propTypes = {
   ...Route.propTypes,
-  currentUser: AuthPropTypes().currentUser,
+  // TODO Add this line if you need it
+  // currentUser: AuthPropTypes().currentUser,
   isPrivateRoute: PropTypes.bool,
   isPublicRoute: PropTypes.bool,
   initialized: PropTypes.bool
 };
 
-const mapStateToProps = store => ({
-  currentUser: store.auth.currentUser,
-  initialized: !store.auth.initialLoading
-  // device: store.device
-});
-
-export default withRouter(connect(mapStateToProps)(AuthenticatedRoute));
+export default withRouter(AuthenticatedRoute);

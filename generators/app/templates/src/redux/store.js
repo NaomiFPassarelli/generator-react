@@ -5,6 +5,7 @@ import createHistory from "history/createBrowserHistory";
 import { reducer as form } from "redux-form";
 import Immutable from "seamless-immutable";
 
+// TODO Add this line if you need it
 // import AnalyticsMiddleware from "../services/AnalyticsService";
 
 export const history = createHistory();
@@ -18,6 +19,7 @@ const enhancers = [];
 /* ------------- Thunk Middleware ------------- */
 middlewares.push(thunk);
 
+// TODO Add this line if you need it
 /* ------------- Analytics Middleware ------------- */
 // middlewares.push(AnalyticsMiddleware);
 
@@ -33,9 +35,10 @@ const getGlobalState = () =>
   });
 
 const rootReducer = (state, action) => {
-  if (action.type === authActions.SIGN_OUT) {
-    return reducers(getGlobalState(state), action);
-  }
+  // TODO Add this line if you need it
+  // if (action.type === authActions.SIGN_OUT) {
+  //   return reducers(getGlobalState(state), action);
+  // }
   return reducers(state, action);
 };
 

@@ -355,6 +355,79 @@ class GeneratorReact extends Generator {
         {}
       );
     }
+
+    if (this.includeRadium) {
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/Button/index.js"),
+        this.destinationPath("src/app/components/Button/index.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/Button/styles.js"),
+        this.destinationPath("src/app/components/Button/styles.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/Checkbox/index.js"),
+        this.destinationPath("src/app/components/Checkbox/index.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/Checkbox/styles.js"),
+        this.destinationPath("src/app/components/Checkbox/styles.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/Label/index.js"),
+        this.destinationPath("src/app/components/Label/index.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/Label/styles.js"),
+        this.destinationPath("src/app/components/Label/styles.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/RadioButton/index.js"),
+        this.destinationPath("src/app/components/RadioButton/index.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/RadioButton/styles.js"),
+        this.destinationPath("src/app/components/RadioButton/styles.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/TextArea/index.js"),
+        this.destinationPath("src/app/components/TextArea/index.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/TextArea/styles.js"),
+        this.destinationPath("src/app/components/TextArea/styles.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/TextInput/index.js"),
+        this.destinationPath("src/app/components/TextInput/index.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/TextInput/styles.js"),
+        this.destinationPath("src/app/components/TextInput/styles.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/Touchable/index.js"),
+        this.destinationPath("src/app/components/Touchable/index.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/Touchable/styles.js"),
+        this.destinationPath("src/app/components/Touchable/styles.js"),
+        {}
+      );
+    }
   }
 
   install() {
