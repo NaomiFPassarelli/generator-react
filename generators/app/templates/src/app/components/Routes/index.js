@@ -4,9 +4,6 @@ import { Switch } from "react-router-dom";
 
 import { history } from "../../../redux/store";
 import Dashboard from "../../screens/Dashboard";
-import SignIn from "../../screens/SignIn";
-import SignUp from "../../screens/SignUp";
-import Configuration from "../../screens/Configuration";
 
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import * as Routes from "./constants";

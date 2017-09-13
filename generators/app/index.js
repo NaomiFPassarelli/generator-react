@@ -257,7 +257,6 @@ class GeneratorReact extends Generator {
     );
 
     mkdirp(this.destinationPath("src/app/assets/"));
-    mkdirp(this.destinationPath("src/app/screens/"));
     mkdirp(this.destinationPath("src/constants/"));
 
     this.fs.copyTpl(
@@ -277,6 +276,11 @@ class GeneratorReact extends Generator {
     this.fs.copyTpl(
       this.templatePath("src/app/components/Routes/index.js"),
       this.destinationPath("src/app/components/Routes/index.js"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/app/components/Routes/styles.js"),
+      this.destinationPath("src/app/components/Routes/styles.js"),
       {}
     );
     this.fs.copyTpl(
@@ -425,6 +429,26 @@ class GeneratorReact extends Generator {
       this.fs.copyTpl(
         this.templatePath("src/app/components/Touchable/styles.js"),
         this.destinationPath("src/app/components/Touchable/styles.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/Spinner/index.js"),
+        this.destinationPath("src/app/components/Spinner/index.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/components/Spinner/styles.js"),
+        this.destinationPath("src/app/components/Spinner/styles.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/screens/Dashboard/index.js"),
+        this.destinationPath("src/app/screens/Dashboard/index.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/screens/Dashboard/styles.js"),
+        this.destinationPath("src/app/screens/Dashboard/styles.js"),
         {}
       );
     }
