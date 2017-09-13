@@ -314,6 +314,11 @@ class GeneratorReact extends Generator {
       {}
     );
     this.fs.copyTpl(
+      this.templatePath("src/redux/AuthHandler.js"),
+      this.destinationPath("src/redux/AuthHandler.js"),
+      {}
+    );
+    this.fs.copyTpl(
       this.templatePath("src/services"),
       this.destinationPath("src/services"),
       {}
@@ -326,6 +331,11 @@ class GeneratorReact extends Generator {
     this.fs.copyTpl(
       this.templatePath("src/utils/colors.js"),
       this.destinationPath("src/utils/colors.js"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/utils/array.js"),
+      this.destinationPath("src/utils/array.js"),
       {}
     );
     this.fs.copyTpl(
@@ -355,6 +365,16 @@ class GeneratorReact extends Generator {
       );
     }
 
+    this.fs.copyTpl(
+      this.templatePath("src/services/AuthServices.js"),
+      this.destinationPath("src/services/AuthServices.js"),
+      {}
+    );
+    this.fs.copyTpl(
+      this.templatePath("src/services/LocalStorageService.js"),
+      this.destinationPath("src/services/LocalStorageService.js"),
+      {}
+    );
     if (this.includeRadium) {
       this.fs.copyTpl(
         this.templatePath("src/app/components/Button/index.js"),
@@ -454,6 +474,45 @@ class GeneratorReact extends Generator {
       this.fs.copyTpl(
         this.templatePath("src/constants/sizes.js"),
         this.destinationPath("src/constants/sizes.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/screens/Dashboard/screens/Home/index.js"),
+        this.destinationPath("src/app/screens/Dashboard/screens/Home/index.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/screens/Dashboard/screens/Home/layout.js"),
+        this.destinationPath(
+          "src/app/screens/Dashboard/screens/Home/layout.js"
+        ),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/screens/Dashboard/screens/Home/styles.js"),
+        this.destinationPath(
+          "src/app/screens/Dashboard/screens/Home/styles.js"
+        ),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/screens/Login/index.js"),
+        this.destinationPath("src/app/screens/Login/index.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/screens/Login/layout.js"),
+        this.destinationPath("src/app/screens/Login/layout.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/screens/Login/strings.js"),
+        this.destinationPath("src/app/screens/Login/strings.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/app/screens/Login/styles.js"),
+        this.destinationPath("src/app/screens/Login/styles.js"),
         {}
       );
     }
