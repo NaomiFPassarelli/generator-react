@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { actionCreators as authActions } from "../../../redux/AuthHandler";
-
+import { actionCreators as authActions } from "../../../../../redux/AuthHandler";
 import Home from "./layout";
 
 class HomeContainer extends Component {

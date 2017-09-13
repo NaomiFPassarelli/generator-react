@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Button from "../../components/Button";
-import Label from "../../components/Label";
+import Button from "../../../../components/Button";
+import Label from "../../../../components/Label";
 
 import styles from "./styles";
 

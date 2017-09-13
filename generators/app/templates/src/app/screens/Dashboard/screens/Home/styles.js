@@ -1,4 +1,4 @@
-import { green } from "../../../utils/colors";
+import { green } from "../../../../../utils/colors";
 
 export default {
   container: {
