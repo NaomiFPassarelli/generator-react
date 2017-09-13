@@ -3,7 +3,8 @@ import { ConnectedRouter } from "react-router-redux";
 import { Switch } from "react-router-dom";
 
 import { history } from "../../../redux/store";
-import Dashboard from "../../screens/Dashboard";
+import Home from "../../screens/Dashboard/screens/Home";
+import Login from "../../screens/Login";
 
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import * as Routes from "./constants";
@@ -15,10 +16,16 @@ function AppRoutes() {
       <div style={styles.container}>
         <Switch>
           <AuthenticatedRoute
+            isPrivateRoute
+            exact
+            path={Routes.HOME}
+            component={Home}
+          />
+          <AuthenticatedRoute
             isPublicRoute
             exact
-            path={Routes.DASHBOARD}
-            component={Dashboard}
+            path={Routes.LOGIN}
+            component={Login}
           />
         </Switch>
       </div>

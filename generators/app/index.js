@@ -77,11 +77,7 @@ class GeneratorReact extends Generator {
         type: "input",
         name: "repoUrl",
         message: "What is the git repo url for this project?",
-        store: true,
-        validate: val =>
-          String(val).match(/^[$A-Z_][0-9A-Z_$]*$/i)
-            ? true
-            : `${val} is not a valid description for a project. Please use a valid description (alphanumeric).`
+        store: true
       },
       {
         type: "confirm",
@@ -257,7 +253,6 @@ class GeneratorReact extends Generator {
     );
 
     mkdirp(this.destinationPath("src/app/assets/"));
-    mkdirp(this.destinationPath("src/constants/"));
 
     this.fs.copyTpl(
       this.templatePath(
@@ -449,6 +444,16 @@ class GeneratorReact extends Generator {
       this.fs.copyTpl(
         this.templatePath("src/app/screens/Dashboard/styles.js"),
         this.destinationPath("src/app/screens/Dashboard/styles.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/constants/fonts.js"),
+        this.destinationPath("src/constants/fonts.js"),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath("src/constants/sizes.js"),
+        this.destinationPath("src/constants/sizes.js"),
         {}
       );
     }

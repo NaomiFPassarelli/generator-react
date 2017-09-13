@@ -1,15 +1,16 @@
 import { create } from "apisauce";
-import i18next from "i18next";
+
+const baseURL = "http://wolox.com";
+
+if (baseURL === "http://wolox.com") {
+  console.warn("API baseURL has not been properly initialized");
+}
 
 const api = create({
-  baseURL: process.env.API_BASE_URL,
+  // TODO Add this if you need it
+  // baseURL: process.env.API_BASE_URL,
+  baseURL,
   timeout: 15000
-});
-
-i18next.addResources("es", "apiErrors", {
-  expired: "La sesión expiró",
-  noConnection:
-    "El servicio no está disponible en este momento. Revise su conexión a internet"
 });
 
 export const apiSetup = dispatch => {
@@ -23,7 +24,7 @@ export const apiSetup = dispatch => {
 
   api.addMonitor(response => {
     if (response.problem === "NETWORK_ERROR") {
-      // - dispatch(alertActions.error(i18next.t('apiErrors:noConnection')));
+      // TODO: These callbacks should only be called if no other callback was asigned for the response.
     }
   });
 };

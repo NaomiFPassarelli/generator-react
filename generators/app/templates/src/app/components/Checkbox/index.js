@@ -2,7 +2,6 @@ import React from "react";
 import Radium from "radium";
 import PropTypes from "prop-types";
 
-// TODO
 import Touchable from "../Touchable";
 import Label from "../Label";
 

@@ -1,4 +1,5 @@
-import { sidebarSize, topbarSize } from "../../../constants/sizes";
+// TODO Add this if you need it
+// import { sidebarSize, topbarSize } from "../../../constants/sizes";
 
 export default {
   base: {
@@ -7,10 +8,13 @@ export default {
     height: "100%"
   },
   content: {
-    height: `calc(100% - ${topbarSize}px)`,
-    marginLeft: sidebarSize,
-    marginTop: topbarSize,
-    width: `calc(100% - ${sidebarSize}px)`
+    // TODO Add this if you need it
+    // height: `calc(100% - ${topbarSize}px)`,
+    // marginLeft: sidebarSize,
+    // marginTop: topbarSize,
+    // width: `calc(100% - ${sidebarSize}px)`
+    height: "100%",
+    width: "100%"
   },
   baseContent: {
     width: "100%",

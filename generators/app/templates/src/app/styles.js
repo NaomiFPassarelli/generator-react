@@ -5,6 +5,7 @@ const styles = {
   "body, html, #root, [data-reactroot]": {
     padding: 0,
     margin: 0,
+    // TODO Add fontFamily
     // fontFamily: ,
     height: "100%"
   }
