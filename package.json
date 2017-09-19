@@ -10,7 +10,8 @@
     "test":
       "./node_modules/react-scripts/bin/react-scripts.js test --env=jsdom",
     "eject": "./node_modules/react-scripts/bin/react-scripts.js eject",
-    "deploy": "npm run build"
+    "deploy": "npm run build",
+    "prepublish": "npm run test && npm run build"
   },
   "repository": "git+https://github.com/NaomiFPassarelli/generator-react.git",
   "keywords": ["yeoman-generator"],

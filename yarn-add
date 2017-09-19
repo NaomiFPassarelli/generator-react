@@ -6,7 +6,6 @@ yarn add history
 && yarn add react-router-redux
 && yarn add redux-form
 && yarn add radium
-&& yarn add aphrodite
 
 
 //opcional
